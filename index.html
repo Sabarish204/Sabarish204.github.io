@@ -1,131 +1,712 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Sabarish Kumar Andavarapu - Premium Resume</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
         .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-            background-color: #ffffff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 
+                0 32px 64px rgba(0, 0, 0, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            position: relative;
         }
 
-        h1, h2 {
-            color: #007bff;
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
-        h5 {
-            margin-top: 1rem;
-            font-weight: bold;
-            color: #343a40;
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
-        section {
-            margin-bottom: 2rem;
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 3rem 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        ul {
-            padding-left: 1.5rem;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
         }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
-            a:hover {
-                text-decoration: underline;
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .contact-info strong {
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid transparent;
+            background: linear-gradient(90deg, #667eea, #764ba2) bottom/100% 3px no-repeat;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            transition: width 0.3s ease;
+        }
+
+        .section:hover .section-title::after {
+            width: 100%;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .summary:hover::before {
+            left: 100%;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category strong {
+            color: #1e3c72;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #f093fb, #f5576c);
+            transition: height 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .experience-item:hover::before {
+            height: 100%;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-period {
+            font-size: 0.95rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .job-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-details li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .job-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .job-details li:hover {
+            color: #1e3c72;
+        }
+
+        .job-details li:hover::before {
+            transform: translateX(4px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card strong {
+            color: #1e3c72;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .personal-projects-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #764ba2;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+            background: linear-gradient(90deg, #f093fb, #f5576c) bottom/100% 2px no-repeat;
+            display: inline-block;
+            position: relative;
+        }
+
+        .personal-projects-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .personal-projects-title:hover::after {
+            width: 100%;
+        }
+
+        .personal-project {
+            border-left: 4px solid #f093fb;
+            position: relative;
+        }
+
+        .personal-project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.08), rgba(245, 87, 108, 0.08));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cloud-experience {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud-experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cloud-experience:hover::before {
+            left: 100%;
+        }
+
+        .cloud-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cloud-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #2d5a2d;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cloud-list li::before {
+            content: '☁️';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cloud-list li:hover {
+            color: #1e3c72;
+            transform: translateX(4px);
+        }
+
+        .cloud-list li:hover::before {
+            transform: scale(1.2);
+        }
+
+        .education-list, .certification-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .education-list li, .certification-list li {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .education-list li::before, .certification-list li::before {
+            content: '🎓';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .certification-list li::before {
+            content: '📜';
+        }
+
+        .education-list li:hover, .certification-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding-left: 3rem;
+        }
+
+        .education-list li:hover::before, .certification-list li:hover::before {
+            opacity: 1;
+        }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            body {
+                padding: 1rem 0.5rem;
             }
 
-            h1 {
+            .container {
+                border-radius: 16px;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
                 font-size: 1.8rem;
             }
 
-            h2 {
-                font-size: 1.4rem;
+            .contact-info {
+                font-size: 1rem;
             }
 
-            h5 {
-                font-size: 1rem;
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .header {
+                padding: 1.5rem 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-primary">Sabarish Kumar Andavarapu</h1>
-        <p><strong>📞</strong> +91-9963299006 | <strong>📧</strong> sabarish9006@gmail.com</p>
-
-        <section>
-            <h2>Professional Summary</h2>
-            <p>Experienced and results-oriented software developer with 11.6+ years of experience in designing, engineering, supporting, and maintaining enterprise-grade web applications using Microsoft technologies. Skilled in full-stack development, RESTful API design, and system integration across domains including finance, healthcare, and customer service. Self-motivated in learning modern architectures and DevOps practices—gained hands-on experience deploying microservices to Azure and creating CI/CD pipelines with Azure DevOps in personal projects. Integrated Azure AD authentication into Angular applications, demonstrating a solid grasp of enterprise identity and access management. Actively leverage AI tools like ChatGPT, Claude AI, Gemini, and AiDE (ValueLabs) across the SDLC to accelerate development, troubleshoot issues, and boost productivity.</p>
-        </section>
-
-        <section>
-            <h2>Technical Skills</h2>
-            <ul>
-                <li><strong>Languages:</strong> C#, JavaScript, TypeScript</li>
-                <li><strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Web API, Entity Framework, Angular, React.js</li>
-                <li><strong>Cloud:</strong> Azure (App Services, Blob Storage, Static Web Apps)</li>
-                <li><strong>DevOps:</strong> Azure DevOps, YAML, Bitbucket, UrbanCode</li>
-                <li><strong>Version Control:</strong> Git, TFS, SVN</li>
-                <li><strong>Tools:</strong> Visual Studio, VS Code, Swagger, Postman</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Professional Experience</h2>
-            <div>
-                <h5>Senior Analyst – ValueLabs Solutions LLP (Mar 2022 – Present)</h5>
-                <ul>
-                    <li>Provided production support for walletwizard.com.au</li>
-                    <li>Resolved .NET Core and Angular issues</li>
-                    <li>Used JAMS Scheduler for automation</li>
-                </ul>
-                <h5>Software Engineer – Bank of America (Feb 2020 – Mar 2022)</h5>
-                <ul>
-                    <li>Built REST APIs and frontend for marketing tools</li>
-                    <li>Improved SQL performance and supported microservices</li>
-                </ul>
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Sabarish Kumar Andavarapu</h1>
+                <p class="contact-info"><strong>📞</strong> +91-9963299006 | <strong>📧</strong> sabarish9006@gmail.com</p>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Notable Projects</h2>
-            <ul>
-                <li><strong>WalletWizard:</strong> .NET Core, Angular – <a href="https://www.walletwizard.com.au" target="_blank">walletwizard.com.au</a></li>
-                <li><strong>HCUE Pharma:</strong> <a href="http://www.hcuepharma.com" target="_blank">hcuepharma.com</a></li>
-                <li><strong>HCUE Dental:</strong> <a href="https://dental.hcueplus.in" target="_blank">dental.hcueplus.in</a></li>
-                <li><strong>Game Hub (React):</strong> <a href="https://game-hub-nine-umber.vercel.app" target="_blank">game-hub.vercel.app</a></li>
-            </ul>
-        </section>
+        <div class="content">
+         
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="summary">
+                    Experienced and results-oriented software developer with 11.6+ years of experience in designing, engineering, supporting, and maintaining enterprise-grade web applications using Microsoft technologies. Skilled in full-stack development, RESTful API design, and system integration across domains including finance, healthcare, and customer service. Self-motivated in learning modern architectures and DevOps practices—gained hands-on experience deploying microservices to Azure and creating CI/CD pipelines with Azure DevOps in personal projects. Integrated Azure AD authentication into Angular applications, demonstrating a solid grasp of enterprise identity and access management. Actively leverage AI tools like ChatGPT, Claude AI, Gemini, and AiDE (ValueLabs) across the SDLC to accelerate development, troubleshoot issues, and boost productivity.
+                </div>
+            </section>
 
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>B.Tech – EEE – Siddhartha Engineering College, JNTUK (2012)</li>
-                <li>Intermediate – Sri Chaitanya Junior College (2008)</li>
-                <li>SSC – SVMHS (2006)</li>
-            </ul>
-        </section>
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <strong>Languages:</strong> C#, JavaScript, TypeScript
+                    </div>
+                    <div class="skill-category">
+                        <strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Web API, Entity Framework, Angular, React.js
+                    </div>
+                    <div class="skill-category">
+                        <strong>Cloud:</strong> Azure (App Services, Blob Storage, Static Web Apps)
+                    </div>
+                    <div class="skill-category">
+                        <strong>DevOps:</strong> Azure DevOps, YAML, Bitbucket, UrbanCode
+                    </div>
+                    <div class="skill-category">
+                        <strong>Version Control:</strong> Git, TFS, SVN
+                    </div>
+                    <div class="skill-category">
+                        <strong>Tools:</strong> Visual Studio, VS Code, Swagger, Postman
+                    </div>
+                </div>
+            </section>
 
-        <section>
-            <h2>Certifications</h2>
-            <ul>
-                <li>Angular & .NET Core – Edureka</li>
-                <li>Microservices Development – Udemy</li>
-            </ul>
-        </section>
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-item">
+                    <h5 class="job-title">Senior Analyst – Software Development – ValueLabs Solutions LLP</h5>
+                    <div class="job-period">March 2022 – Present</div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Provided production support for walletwizard.com.au, ensuring high availability and quick turnaround on issue resolutions.</li>
+                            <li>Diagnosed and resolved backend and frontend issues in .NET Core and Angular applications.</li>
+                            <li>Automated recurring backend processes using JAMS Scheduler.</li>
+                            <li>Collaborated with QA, DevOps, and product stakeholders for quality releases.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h5 class="job-title">Software Engineer – Bank of America</h5>
+                    <div class="job-period">February 2020 – March 2022</div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Worked on enterprise-scale applications: SeedList, EME, MobFE, and MobIC.</li>
+                            <li>Built and maintained RESTful APIs and frontend components to support marketing and campaign workflows.</li>
+                            <li>Improved database performance with optimized SQL and followed microservices principles.</li>
+                            <li>Familiar with Azure DevOps, Bitbucket, UrbanCode Deploy, and Horizon deployment workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h5 class="job-title">Software Engineer – Ehnote SoftLabs Pvt. Ltd / Appdest Technologies Pvt. Ltd (Same Organization Group)</h5>
+                    <div class="job-period">February 2014 – February 2020</div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Developed DOC Ehnote, a cloud-based healthcare EMR and billing system.</li>
+                            <li>Integrated modules for multi-branch management, scheduling, and billing using Angular and Web API.</li>
+                            <li>Deployed services on Azure, including file-processing Windows Services for ophthalmology scan integration.</li>
+                            <li>Developed HCUE Pharma, HCUE Dental, and SalonInTown using ASP.NET MVC, AngularJS, and SQL Server.</li>
+                            <li>Built frontend and backend modules for inventory, appointments, medical records, billing, and vendor systems.</li>
+                            <li>Improved usability and performance through iterative QA feedback.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Notable Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <strong>WalletWizard (ValueLabs):</strong> Financial application support and issue resolution (.NET Core, Angular, MSSQL) - <a href="https://www.walletwizard.com.au" target="_blank">walletwizard.com.au</a>
+                    </div>
+                    <div class="project-card">
+                        <strong>SeedList, EME, MobFE (Bank of America):</strong> Campaign tools for email management, audit, and effectiveness tracking.
+                    </div>
+                    <div class="project-card">
+                        <strong>DOC Ehnote (Ehnote):</strong> Full-featured healthcare platform with EMR, scheduling, and billing support.
+                    </div>
+                    <div class="project-card">
+                        <strong>HCUE Pharma (Appdest):</strong> Multi-branch pharmacy system with billing, inventory, and reporting. - <a href="http://www.hcuepharma.com" target="_blank">hcuepharma.com</a>
+                    </div>
+                    <div class="project-card">
+                        <strong>HCUE Dental (Appdest):</strong> Hospital-focused app for managing appointments, records, lab tests, and billing. - <a href="https://dental.hcueplus.in" target="_blank">dental.hcueplus.in</a>
+                    </div>
+                    <div class="project-card">
+                        <strong>SalonInTown (Appdest):</strong> Salon discovery and booking platform with customer feedback features.
+                    </div>
+                </div>
+                
+                <h3 class="personal-projects-title">Personal Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card personal-project">
+                        <strong>Game Hub (React + Chakra UI + RAWG API):</strong> <a href="https://game-hub-nine-umber.vercel.app" target="_blank">game-hub.vercel.app</a> – Built a responsive video game discovery app using React and Chakra UI. Integrated RAWG API and deployed via Vercel.
+                    </div>
+                    <div class="project-card personal-project">
+                        <strong>Angular CI/CD App (Angular + Azure Static Web Apps):</strong> <a href="https://orange-cliff-0324e3d1e.6.azurestaticapps.net" target="_blank">https://orange-cliff-0324e3d1e.6.azurestaticapps.net/</a> – Practice Angular app with full CI/CD pipeline using Azure DevOps YAML scripts. Showcased version control, build, test, and deploy.
+                    </div>
+                </div>
+            </section>
+
+   <section class="section">
+                <h2 class="section-title">Cloud & Automation Experience</h2>
+                <div class="cloud-experience">
+                    <ul class="cloud-list">
+                        <li>Deployed full-stack Angular + .NET Core apps on Azure App Services.</li>
+                        <li>Built and maintained CI/CD YAML pipelines in Azure DevOps.</li>
+                        <li>Managed blob storage using Azure Storage Explorer.</li>
+                        <li>Integrated Azure AD authentication in Angular application for secured access.</li>
+                    </ul>
+                </div>
+            </section>
+
+<section class="section">
+                <h2 class="section-title">Certifications</h2>
+                <ul class="certification-list">
+                    <li>Angular & .NET Core – Edureka</li>
+                    <li>Microservices Development – Udemy</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <ul class="education-list">
+                    <li>B.Tech – EEE – Siddhartha Engineering College, JNTUK (2012)</li>
+                    <li>Intermediate – Sri Chaitanya Junior College (2008)</li>
+                    <li>SSC – SVMHS (2006)</li>
+                </ul>
+            </section>
+
+            
+        </div>
     </div>
-
 </body>
 </html>
